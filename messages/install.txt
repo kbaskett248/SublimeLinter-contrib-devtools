@@ -1,0 +1,5 @@
+SublimeLinter-contrib-devtools
+-------------------------------
+This linter plugin for SublimeLinter provides an interface to the M-AT DevTools linter.
+
+
