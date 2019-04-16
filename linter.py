@@ -5,15 +5,14 @@ MAGIC_PATH = "C:\\Program Files (x86)\\PTCT-AP\\SoloFocus\\DevTools.Universe\\De
 LINTER_PATH = "C:\\Program Files (x86)\\PTCT-AP\\SoloFocus\\DevTools.Universe\\DevTools\\PgmObject\\Hha\\HhaZtDev.Lint.P.mps"
 
 class DevToolsLinter(Linter):
+    cmd = '"%s" "%s" /f ${file}' % (MAGIC_PATH, LINTER_PATH)
     regex = r'(?P<filename>.+?); (?P<line>\d+); \(((?P<warning>[DW])|(?P<error>E))\) (?P<message>.+)'
     multiline = False
     defaults = {
-        'selector': 'source.focus'
+        'selector': 'source.focus',
+        'args': '/wholefile'
     }
     tempfile_suffix = "-"
-
-    def cmd(self):
-        return '"%s" "%s" /f ${file} /wholefile' % (MAGIC_PATH, LINTER_PATH)
 
     def split_match(self, match):
         """Extracts data from each error result returned from the command.
