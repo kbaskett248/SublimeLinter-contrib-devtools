@@ -5,6 +5,7 @@ MAGIC_PATH = "C:\\Program Files (x86)\\PTCT-AP\\SoloFocus\\DevTools.Universe\\De
 LINTER_PATH = "C:\\Program Files (x86)\\PTCT-AP\\SoloFocus\\DevTools.Universe\\DevTools\\PgmObject\\Hha\\HhaZtDev.Lint.P.mps"
 
 class DevToolsLinter(Linter):
+    name = "DevTools"
     cmd = '"%s" "%s" /f ${file}' % (MAGIC_PATH, LINTER_PATH)
     regex = r'(?P<filename>.+?); (?P<line>\d+); \(((?P<warning>[DW])|(?P<error>E))\) (?P<message>.+)'
     multiline = False
